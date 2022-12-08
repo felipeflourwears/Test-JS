@@ -1,5 +1,7 @@
 //console.log('Funcionando');
 var formulario=document.getElementById('formulario');
+var respuesta=document.getElementById('respuesta');
+
 formulario.addEventListener('submit', function(e){
     e.preventDefault();
     console.log("Me diste un click")
@@ -15,5 +17,19 @@ formulario.addEventListener('submit', function(e){
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            if(data==='error'){
+                respuesta.innerHTML=`
+                <div class="alert alert-danger" role="alert">
+                    Llena todos los campos
+                </div>
+                `
+            }
+            else{
+                respuesta.innerHTML=`
+                <div class="alert alert-primary" role="alert">
+                    ${data}
+                </div>
+                `
+            }
         })
 })
