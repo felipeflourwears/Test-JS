@@ -7,3 +7,4 @@ CREATE TABLE imagen(
 	ruta varchar(45),
 	PRIMARY KEY (id)
 );
+
